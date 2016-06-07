@@ -24,7 +24,7 @@ namespace PersonnalAssistant
                 
                 string headline = m.Groups[1].Value;
                 headlines.Add(headline);
-
+                
                 say(headline);
             }
            
