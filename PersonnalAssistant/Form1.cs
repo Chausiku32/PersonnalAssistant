@@ -43,7 +43,9 @@ namespace PersonnalAssistant
         public void restart()
         {
             //restart program
-            Process.Start(@"C:\Users\Mariana\Desktop\PersonnalAssistant\PersonnalAssistant.exe");
+            
+            //Path to the .exe
+            Process.Start(@"C:\Users\Mariana\Desktop\PersonnalAssistant\PersonnalAssistant\bin\Debug\PersonnalAssistant.exe");
             Environment.Exit(0);
         }
 
