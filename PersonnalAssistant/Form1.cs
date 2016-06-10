@@ -209,8 +209,6 @@ namespace PersonnalAssistant
                     killProc("wordpad.exe");
                 }
 
-                //pastebin.com/kcSBrEFq
-                //PasteBin Voice Bot Weather
                 if(command == "what is the weather")
                 {
                     say(GetWeather("cond"));
