@@ -35,7 +35,6 @@ namespace PersonnalAssistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             con = new System.Data.SqlClient.SqlConnection();
             con.ConnectionString = "Data Source=.\\SQLEXPRESS; AttachDbFilename =Database1.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
             con.Open();
@@ -45,6 +44,8 @@ namespace PersonnalAssistant
 
             say("Hello" + textBox5.Text);
             say("My name is Jartello. I am your personal assistant");
+
+            label4.Text = "DateTime.Now";
         }
 
         //her reply
