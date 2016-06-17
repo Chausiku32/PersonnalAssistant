@@ -31,8 +31,19 @@ namespace PersonnalAssistant
             InitializeComponent();
         }
 
+        System.Data.SqlClient.SqlConnection con;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            con = new System.Data.SqlClient.SqlConnection();
+            con.ConnectionString = "Data Source=.\\SQLEXPRESS; AttachDbFilename =Database1.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+            con.Open();
+            MessageBox.Show("Connection opened");
+            con.Close();
+            MessageBox.Show("Connection closed");
+
+            say("Hello" + textBox5.Text);
             say("My name is Jartello. I am your personal assistant");
         }
 
@@ -72,7 +83,9 @@ namespace PersonnalAssistant
 
         public String GetWeather(String input)
         {
-            String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='Nairobi, state')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+            try 
+            {
+                String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='Nairobi, state')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
             XmlDocument wData = new XmlDocument();
             wData.Load(query);
 
@@ -100,6 +113,12 @@ namespace PersonnalAssistant
                 return "Error Reciving data";
             }
             return "error";
+            }
+            catch(System.Xml.XmlException )
+            {
+                return "s";
+            }
+            
         }
 
         public void restart()
@@ -113,7 +132,7 @@ namespace PersonnalAssistant
         public void letsTalk()
         {
             //list of key words
-            list.Add(new string[] { "hello", "hey", "how are you", "good", "bad", "i am anot feeling so well", "update", "open youtube", "what is the time", "open gmail", "when is today", "wake", "sleep", "restart", "open wordpad", "close wordpad", "what is the weather like", "what is the temperature", "jahtello", "what is the temperature", "what is the weather", "i have a problem" });
+            list.Add(new string[] { "hello", "hey", "how are you", "update", "open youtube", "what is the time", "open gmail", "when is today", "sleep", "restart", "open wordpad", "close wordpad", "what is the weather", "what is the temperature", "jartello", "i have a problem" });
             Grammar gr = new Grammar(new GrammarBuilder(list));
 
             try
@@ -134,7 +153,7 @@ namespace PersonnalAssistant
             string command = e.Result.Text;
             NewsUpdate news = new NewsUpdate();
 
-            if (command == "jahtello") 
+            if (command == "jartello") 
             {
                 say("How may I help you");
                 wake = true;
@@ -209,6 +228,8 @@ namespace PersonnalAssistant
                     killProc("wordpad.exe");
                 }
 
+                //pastebin.com/kcSBrEFq
+                //PasteBin Voice Bot Weather
                 if(command == "what is the weather")
                 {
                     say(GetWeather("cond"));
@@ -219,9 +240,8 @@ namespace PersonnalAssistant
                 }
                 if (command == "i have a problem")
                 {
-                    this.Hide();
-                    Form2 f = new Form2();
-                    f.Show();
+                    //this.Hide();
+                    //Form2.;
                 }
             }
             textBox1.AppendText(command + "\n");
