@@ -19,8 +19,6 @@ namespace PersonnalAssistant
     {
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         Boolean wake = true;
-        string temp, condition;
-
         SpeechSynthesizer spk = new SpeechSynthesizer();
         Choices list = new Choices();
 
@@ -35,17 +33,18 @@ namespace PersonnalAssistant
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*
             con = new System.Data.SqlClient.SqlConnection();
             con.ConnectionString = "Data Source=.\\SQLEXPRESS; AttachDbFilename =Database1.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
             con.Open();
             MessageBox.Show("Connection opened");
             con.Close();
             MessageBox.Show("Connection closed");
+             * */
 
             say("Hello" + textBox5.Text);
-            say("My name is Jartello. I am your personal assistant");
 
-            label4.Text = "DateTime.Now";
+            label4.Text = @"DateTime.Now";
         }
 
         //her reply
@@ -80,46 +79,6 @@ namespace PersonnalAssistant
                     }
                 }
             }
-        }
-
-        public String GetWeather(String input)
-        {
-            try 
-            {
-                String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='Nairobi, state')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
-            XmlDocument wData = new XmlDocument();
-            wData.Load(query);
-
-            XmlNamespaceManager manager = new XmlNamespaceManager(wData.NameTable);
-            manager.AddNamespace("yweather", "http://xml.weather.yahoo.com/ns/rss/1.0");
-
-            XmlNode channel = wData.SelectSingleNode("query").SelectSingleNode("results").SelectSingleNode("channel");
-            XmlNodeList nodes = wData.SelectNodes("query/results/channel");
-            try
-            {
-                temp = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["temp"].Value;
-                condition = channel.SelectSingleNode("item").SelectSingleNode("yweather:condition", manager).Attributes["text"].Value;
-                
-                if (input == "temp")
-                {
-                    return temp;
-                }
-                if (input == "cond")
-                {
-                    return condition;
-                }
-            }
-            catch
-            {
-                return "Error Reciving data";
-            }
-            return "error";
-            }
-            catch(System.Xml.XmlException )
-            {
-                return "s";
-            }
-            
         }
 
         public void restart()
@@ -160,13 +119,13 @@ namespace PersonnalAssistant
                 wake = true;
                 label3.Text = "State: Awake";
             }
+
             if (command == "sleep") 
             { 
                 wake = false;
                 label3.Text = "State: Sleep Mode";
             }
            
-
             if (wake == true)
             {
 
@@ -179,56 +138,69 @@ namespace PersonnalAssistant
                 {
                     news.news();
                 }
+
                 if (command == "hey")
                 {
                     say("Hello");
                 }
+
                 if (command == "how are you")
                 {
                     say("I am fine. Thanks for asking; and how are you");
                 }
+
                 if(command == "good")
                 {
                     say("Thats great. How may I be of service");
                 }
+
                 if (command == "bad")
                 {
                     say("I have a joke that might help.");
                     say("Why did the chicken cross the road");
                     say("");
                 }
+
                 if (command == "i am not feeling so well")
                 {
                     say("I am really sorry");
                 }
+
                 if (command == "open youtube")
                 {
                     say("opening youtube");
                     Process.Start("https://youtube.com");
                 }
+
                 if (command == "open gmail")
                 {
                     say("opening gmail");
                     Process.Start("https://gmail.com");
                 }
+
                 if (command == "what is the time")
                 {
                     say(DateTime.Now.ToString("h:mm tt"));
                 }
+
                 if (command == "when is today")
                 {
                     say(DateTime.Now.ToString("M/d/yyyy"));
                     
                 }
+
                 if (command == "open wordpad")
                 {
                     Process.Start(@"C:\Program Files\Windows NT\Accessories\wordpad.exe");
                 }
+
                 if (command == "close wordpad")
                 {
                     killProc("wordpad.exe");
                 }
 
+                /*
+                 * 
                 //pastebin.com/kcSBrEFq
                 //PasteBin Voice Bot Weather
                 if(command == "what is the weather")
@@ -239,13 +211,22 @@ namespace PersonnalAssistant
                 {
                     say(GetWeather("temp"));
                 }
+                 * 
+                 
                 if (command == "i have a problem")
                 {
                     //this.Hide();
                     //Form2.;
                 }
+                 * 
+                 */
             }
             textBox1.AppendText(command + "\n");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

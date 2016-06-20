@@ -38,3 +38,6 @@ C:\Users\80546\Desktop\PersonnalAssistant\PersonnalAssistant\obj\Debug\Personnal
 C:\Users\80546\Desktop\PersonnalAssistant\PersonnalAssistant\obj\Debug\PersonnalAssistant.Form2.resources
 C:\Users\80546\Desktop\PersonnalAssistant\PersonnalAssistant\obj\Debug\PersonnalAssistant.Properties.Resources.resources
 C:\Users\80546\Desktop\PersonnalAssistant\PersonnalAssistant\obj\Debug\PersonnalAssistant.csproj.GenerateResource.Cache
+D:\School\BIF\Year3\Sem1\dotNET\projects\PersonnalAssistant\PersonnalAssistant\bin\Debug\Database1.mdf
+D:\School\BIF\Year3\Sem1\dotNET\projects\PersonnalAssistant\PersonnalAssistant\bin\Debug\Database1_log.ldf
+D:\School\BIF\Year3\Sem1\dotNET\projects\PersonnalAssistant\PersonnalAssistant\obj\Debug\PersonnalAssistant.Form2.resources
