@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Database1DataSet_CustomCMDS" targetNamespace="http://tempuri.org/Database1DataSet_CustomCMDS.xsd" xmlns:mstns="http://tempuri.org/Database1DataSet_CustomCMDS.xsd" xmlns="http://tempuri.org/Database1DataSet_CustomCMDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Database1ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Database1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PersonnalAssistant.Properties.Settings.GlobalReference.Default.Database1ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Custom_commandsTableAdapter" GeneratorDataComponentClassName="Custom_commandsTableAdapter" Name="Custom_commands" UserDataComponentName="Custom_commandsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Database1ConnectionString (Settings)" DbObjectName="dbo.Custom_commands" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT users_command, responses FROM dbo.Custom_commands</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="users_command" DataSetColumn="users_command" />
+              <Mapping SourceColumn="responses" DataSetColumn="responses" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Database1DataSet_CustomCMDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Database1DataSet_CustomCMDS" msprop:Generator_UserDSName="Database1DataSet_CustomCMDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Custom_commands" msprop:Generator_TableClassName="Custom_commandsDataTable" msprop:Generator_TableVarName="tableCustom_commands" msprop:Generator_TablePropName="Custom_commands" msprop:Generator_RowDeletingName="Custom_commandsRowDeleting" msprop:Generator_RowChangingName="Custom_commandsRowChanging" msprop:Generator_RowEvHandlerName="Custom_commandsRowChangeEventHandler" msprop:Generator_RowDeletedName="Custom_commandsRowDeleted" msprop:Generator_UserTableName="Custom_commands" msprop:Generator_RowChangedName="Custom_commandsRowChanged" msprop:Generator_RowEvArgName="Custom_commandsRowChangeEvent" msprop:Generator_RowClassName="Custom_commandsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="users_command" msprop:Generator_ColumnVarNameInTable="columnusers_command" msprop:Generator_ColumnPropNameInRow="users_command" msprop:Generator_ColumnPropNameInTable="users_commandColumn" msprop:Generator_UserColumnName="users_command">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="responses" msprop:Generator_ColumnVarNameInTable="columnresponses" msprop:Generator_ColumnPropNameInRow="responses" msprop:Generator_ColumnPropNameInTable="responsesColumn" msprop:Generator_UserColumnName="responses">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
