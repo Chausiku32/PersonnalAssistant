@@ -30,7 +30,31 @@ namespace PersonnalAssistant
         {
             try
             {
-                String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='Nairobi, state')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+                /*
+                // Create an XmlReaderSettings object.  
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    
+                    // Set XmlResolver to null, and ProhibitDtd to false. 
+                    settings.XmlResolver = null;
+                    settings.ProhibitDtd = false;
+                    
+                    // Now, create an XmlReader.  This is a forward-only text-reader based
+                    // reader of Xml.  Passing in the settings will ensure that validation
+                    // is not performed. 
+                    XmlReader reader = XmlTextReader.Create(xmlStream, settings);
+                    
+                    // Create your document, and load the reader. 
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(reader);
+                
+                */
+                XmlReaderSettings settings = new XmlReaderSettings();
+                
+                // Set XmlResolver to null, and ProhibitDtd to false. 
+                settings.XmlResolver = null;
+                settings.ProhibitDtd = false;
+                
+                String query = String.Format("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='Nairobi, state')&format=xml&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys", settings);
                 XmlDocument wData = new XmlDocument();
                 wData.Load(query);
 
